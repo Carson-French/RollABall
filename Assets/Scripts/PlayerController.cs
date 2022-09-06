@@ -3,13 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
     public float speed = 0;
     public TextMeshProUGUI countText;
     public GameObject winTextObject;
+    public GameObject looseTextObject;
     public int totalPickups = 8;
+    public Text timerText;
 
     private Rigidbody rb;
     private int count;
@@ -25,6 +28,7 @@ public class PlayerController : MonoBehaviour
         SetCountText();
 
         winTextObject.SetActive(false);
+        looseTextObject.SetActive(false);
     }
 
     void OnMove(InputValue movementValue)
@@ -38,9 +42,13 @@ public class PlayerController : MonoBehaviour
     {
         countText.text = "Count: " + count;
 
-        if (count == totalPickups)
+        if (count == totalPickups && timerText.text != "00:00")
         {
             winTextObject.SetActive(true);
+        }
+        else if (timerText.text == "00:00")
+        {
+            looseTextObject.SetActive(true);
         }
     }
 
