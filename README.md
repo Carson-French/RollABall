@@ -1,5 +1,6 @@
 # RollABall
 
-This is a Unity game that has a ball that collects cubes.
+This is a Unity game that has a ball that collects cubes. 
+You win if you collect everything before the time runs out.
 
-By Frank McCown
+By Carson French
